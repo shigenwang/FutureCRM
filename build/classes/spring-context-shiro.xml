@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+	default-lazy-init="true">
+	<description>Shiro Configuration</description>
+	<!-- Shiro权限过滤过滤器定义 -->
+	<bean name="shiroFilterChainDefinitions" class="java.lang.String">
+		<constructor-arg>
+			<value>
+				/images/** = anon
+				/css/** = anon
+				/js/** = anon
+
+				/sysLogin = authc
+				/** = user
+
+			</value>
+		</constructor-arg>
+	</bean>
+	<bean id="myRealm" class="com.hist.pe.security.SystemAuthorizingRealm" />
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="myRealm" />
+		<property name="cacheManager" ref="shiroCacheManager" />
+	</bean>
+	<bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManager" ref="cacheManager" />
+	</bean>
+	<bean id="formAuthenticationFilter" class="com.hist.pe.security.FormAuthenticationFilter">
+	</bean>
+	<!-- 安全认证过滤器 -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/sysLogin" />
+		<property name="successUrl" value="/index" />
+		<property name="filters">
+			<map>
+				<entry key="authc" value-ref="formAuthenticationFilter" />
+			</map>
+		</property>
+		<property name="filterChainDefinitions">
+			<ref bean="shiroFilterChainDefinitions" />
+		</property>
+	</bean>
+	<!-- 会话DAO -->
+	<bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.MemorySessionDAO" />
+	<!-- 会话管理器 -->
+	<bean id="sessionManager"
+		class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+		<property name="sessionDAO" ref="sessionDAO" />
+	</bean>
+	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+	<!-- AOP式方法级权限检查 -->
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor">
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+	<bean
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+	<bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+		<property name="hashAlgorithmName" value="MD5" />
+		<property name="storedCredentialsHexEncoded" value="true" />
+		<property name="hashIterations" value="1" />
+	</bean>
+</beans>
