@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.future.hist.crm.mapper.DepartmentMapper">
+    
+   <!--  <select id="getAllDp" resultType="Department">
+        select*from department d where d.dp_id is not null
+    </select>
+    
+    write by zhaoshuo 系别的增删改查
+    <delete id="deleteDepartment" parameterType="Integer">
+    delete from department where dp_id = #{departmentId}
+    </delete>
+    
+    <update id="updateDepartment" parameterType="Department">
+    update department set dp_name = #{dp_name} where dp_id = #{dp_id}
+    </update>
+    
+    <select id="findById" parameterType="Integer" resultType="Department">
+    select * from department where dp_id = #{departmentId}
+    </select>
+  	  
+    
+    <select id="findByName" parameterType="String" resultType="Department">
+     select * from department  where dp_name = #{departmentName}
+    </select>
+    
+    <insert id="addDepartment" parameterType="Department">
+    insert into department(dp_id, dp_name) values(null, #{dp_name})
+    </insert> -->
+    
+    <!-- 上面那是复制以前的能用就用，不能用就删 -->
+</mapper>
