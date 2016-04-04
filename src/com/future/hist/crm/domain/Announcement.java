@@ -15,6 +15,12 @@ public class Announcement {
 	private User issuer;                  //发布人
 	private Date issue_date;              //发布日期
 	private Department department;        //部门
+	public User getIssuer() {
+		return issuer;
+	}
+	public void setIssuer(User issuer) {
+		this.issuer = issuer;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -47,8 +53,8 @@ public class Announcement {
 	}
 	@Override
 	public String toString() {
-		return "Announcement [id=" + id + ", title=" + title + ", content=" + content + ", issue_date=" + issue_date
-				+ ", department=" + department + "]";
+		return "Announcement [id=" + id + ", title=" + title + ", content=" + content + ", issuer=" + issuer
+				+ ", issue_date=" + issue_date + ", department=" + department + "]";
 	}
 	
 }
