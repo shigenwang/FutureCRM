@@ -16,7 +16,6 @@
 
 				/sysLogin = authc
 				/** = user
-
 			</value>
 		</constructor-arg>
 	</bean>
