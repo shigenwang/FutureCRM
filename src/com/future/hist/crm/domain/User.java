@@ -11,6 +11,7 @@ import java.util.Set;
  */
 public class User {
 
+	private Long id;      
 	private String creator; // #创建人
 	private String createTime; // 创建时间 yyyy-mm-dd HH24:mm:ss
 	private String updater; // 修改人
@@ -58,6 +59,13 @@ public class User {
 	private String empolder;            //人员开发
 	private String relation;            //人际关系
 	private Set<Role> roles = new HashSet<Role>();
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getCreator() {
 		return creator;
 	}

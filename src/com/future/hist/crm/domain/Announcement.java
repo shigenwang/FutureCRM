@@ -12,6 +12,7 @@ public class Announcement {
 	private Long id;
 	private String title;                 //标题
 	private String content;               //内容
+	private User issuer;                  //发布人
 	private Date issue_date;              //发布日期
 	private Department department;        //部门
 	public Long getId() {
