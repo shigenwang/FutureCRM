@@ -7,18 +7,18 @@ package com.future.hist.crm.domain;
  */
 public class City {
 
-	private int id;// 为了和数据库中字段对应
+	private long id;// 为了和数据库中字段对应
 	private String name;// 城市名称
 	private String pycode;// 城市首字母缩写
-	private int pid;// 所属省份id
+	private long pid;// 所属省份id
 	private String postcode;// 邮政编码
 	private String areacode;// 区域编码
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -38,11 +38,11 @@ public class City {
 		this.pycode = pycode;
 	}
 
-	public int getPid() {
+	public long getPid() {
 		return pid;
 	}
 
-	public void setPid(int pid) {
+	public void setPid(long pid) {
 		this.pid = pid;
 	}
 

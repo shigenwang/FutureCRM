@@ -7,15 +7,15 @@ package com.future.hist.crm.domain;
  */
 public class Province {
 
-	private int id; // 为了和数据库中字段对应
+	private long id; // 为了和数据库中字段对应
 	private String name; // 省份名称
 	private String pycode;// 省份拼音缩写
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
