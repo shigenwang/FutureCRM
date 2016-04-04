@@ -3,7 +3,7 @@ package com.future.hist.crm.domain;
 /**
  * @author 羊羊
  * @date 2016年4月2日
- * @descriptino 城市类
+ * @description 城市类
  */
 public class City {
 
