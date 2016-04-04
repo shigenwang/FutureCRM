@@ -8,10 +8,6 @@
 	<!-- 设置外部配置文件 -->
 	
 	<!-- 设置类别名 -->
-	<typeAliases>
-		<package name="com.future.hist.crm.domain"/>
-	</typeAliases>
-	
 	<!-- 设置数据库连接环境 -->
 	<!-- 映射文件 -->
 	
