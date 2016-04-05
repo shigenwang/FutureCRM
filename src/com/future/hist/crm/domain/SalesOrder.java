@@ -1,4 +1,4 @@
-package com.future.hist.crm.domain;
+ package com.future.hist.crm.domain;
 
 import java.util.Date;
 /**
