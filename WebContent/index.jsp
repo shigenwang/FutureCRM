@@ -8,5 +8,8 @@
 </head>
 <body>
 <h2>首页测试！</h2>
+<a href="${pageContext.request.contextPath}/test/hello.action">hello</a>
+<br>
+<a href="${pageContext.request.contextPath}/salesOrder/queryOrders.action">queryOrders</a>
 </body>
 </html>

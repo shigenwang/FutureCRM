@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.future.hist.crm.mapper.SalesOrderMapper">
-	<!-- 分页SQL语句 -->
-	<select id="selectProductsByPage" resultMap="SalesOrder">
+<mapper namespace="com.future.hist.crm.dao.SalesOrderMapper">
+
+	<!-- 查询所有销售记录 -->
+	<select id="findOrdersList" resultType="SalesOrder">
 		select
 		*
 		from saleorder 
-		WHERE id = #{id,jdbcType=INTEGER} limit #{startPos},#{pageSize}
 	</select>
 	<!-- 取得记录的总数 -->
-	<select id="getProductsCount" resultType="long">
+	<select id="getOrdersCount" resultType="long">
 		SELECT COUNT(*) FROM saleorder
 	</select>
 </mapper>

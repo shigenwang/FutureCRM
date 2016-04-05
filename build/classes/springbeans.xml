@@ -10,10 +10,8 @@
 
 	<!-- 配置spring扫描的包 -->
 	<context:component-scan base-package="com.future.hist.crm">
-		<context:exclude-filter type="annotation"
-			expression="org.springframework.stereotype.Controller" />
-		<context:exclude-filter type="annotation"
-			expression="org.springframework.web.bind.annotation.ControllerAdvice" />
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice" />
 	</context:component-scan>
 
 
@@ -37,12 +35,13 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="datasource"></property>
 		<property name="typeAliasesPackage" value="com.future.hist.crm.domain"></property>
+		<property name="mapperLocations" value="classpath:com/future/hist/crm/mapper/*.xml" />
 	</bean>
 
 	<!-- 3. mybatis自动扫描加载Sql映射文件 : MapperScannerConfigurer sqlSessionFactory 
 		/ basePackage : 指定sql映射文件/接口所在的包（自动扫描） -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.future.hist.crm.mapper"></property>
+		<property name="basePackage" value="com.future.hist.crm.dao"></property>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
 
